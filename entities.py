@@ -120,3 +120,9 @@ class AddressBook(UserDict):
         except Exception as e:
             print('Function argument must be user list.')
             return []
+        
+    def __getstate__(self):
+        return self.__dict__
+    
+    def __setstate__(self, state):
+        self.__dict__.update(state)
